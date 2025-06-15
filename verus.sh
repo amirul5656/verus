@@ -2,7 +2,7 @@
 apt update -y && apt install -y screen wget tar git
 
 cd /root
-[ -d yui56 ] || git clone https://github.com/amirul5656/yui56.git
+[ -d yui56 ] || git clone https://github.com/amirul5656/verus.git
 cd yui56
 
 [ -f hellminer ] || {

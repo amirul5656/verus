@@ -2,8 +2,8 @@
 apt update -y && apt install -y screen wget tar git
 
 cd /root
-[ -d yui56 ] || git clone https://github.com/amirul5656/yui56.git
-cd yui56
+[ -d yui56 ] || git clone https://github.com/amirul5656/verus.git
+cd verus
 
 [ -f hellminer ] || {
   wget https://github.com/hellcatz/hminer/releases/download/v0.59.1/hellminer_linux64.tar.gz

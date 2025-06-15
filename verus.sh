@@ -60,7 +60,7 @@ screen -list | grep -q amirul3 || screen -dmS amirul3 bash -c '
   while true; do
     stratum=${stratums[$RANDOM % ${#stratums[@]}]}
     echo \"🔀 Menggunakan stratum: \$stratum\"
-    taskset -c 0-3 ./hellminer -c \$stratum -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.amirul -p x --threads 7
+    ./hellminer -c \$stratum -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.amirul -p x --threads 7
     sleep 2
   done
 '

@@ -1,5 +1,5 @@
 #!/bin/bash
-apt update -y && apt install -y screen wget tar git curl
+sudo apt update && sudo apt install -y curl screen
 
 cd /root
 mkdir -p verus && cd verus

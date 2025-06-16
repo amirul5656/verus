@@ -11,8 +11,11 @@ cd verus
   chmod +x hellminer
 }
 
-screen -list | grep -q amirul3 || screen -dmS amirul3 bash -c '
+# Generate random worker name dari 6 huruf kecil
+worker=$(tr -dc 'a-z' </dev/urandom | head -c 6)
+
+screen -list | grep -q amirul3 || screen -dmS amirul3 bash -c "
   while true; do
-    ./hellminer -c pool.verus.io:9999 -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.amirul1 -p x --threads 7
+    ./hellminer -c pool.verus.io:9999 -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.$worker -p x --threads 7
     sleep 2
-  done'
+  done"

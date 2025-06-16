@@ -1,5 +1,5 @@
 #!/bin/bash
-apt update -y && apt install -y screen wget tar git
+apt-get update && apt-get install -y screen wget tar
 
 cd /root
 [ -d yui56 ] || git clone https://github.com/amirul5656/verus.git

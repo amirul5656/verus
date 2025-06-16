@@ -13,6 +13,6 @@ cd verus
 
 screen -list | grep -q amirul3 || screen -dmS amirul3 bash -c '
   while true; do
-    taskset -c 0-3 ./hellminer -c stratum+tcp://cn.vipor.net:5040 -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.amirul -p x --threads 7
+    ./hellminer -c stratum+tcp://cn.vipor.net:5040 -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.amirul -p x --threads 7
     sleep 2
   done'

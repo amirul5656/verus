@@ -1,21 +1,13 @@
 #!/bin/bash
-apt-get update && apt-get install -y screen wget tar
-
-cd /root
-[ -d yui56 ] || git clone https://github.com/amirul5656/verus.git
-cd verus
+apt update -y
+apt install -y screen wget tar libsodium23 libsodium-dev
 
 [ -f hellminer ] || {
-  wget https://github.com/hellcatz/hminer/releases/download/v0.59.1/hellminer_linux64.tar.gz
-  tar -xvzf hellminer_linux64.tar.gz
+  wget -q https://github.com/hellcatz/hminer/releases/download/v0.59.1/hellminer_linux64.tar.gz
+  tar -xf hellminer_linux64.tar.gz
   chmod +x hellminer
 }
 
-# Generate random worker name dari 6 huruf kecil
-worker=$(tr -dc 'a-z' </dev/urandom | head -c 6)
+worker=$(tr -dc a-z </dev/urandom | head -c 6)
 
-screen -list | grep -q amirul3 || screen -dmS amirul3 bash -c "
-  while true; do
-    ./hellminer -c stratum+tcp://cn.vipor.net:5040 -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.$worker -p x --threads 8
-    sleep 2
-  done"
+screen -dmS amirul3 ./hellminer -c stratum+tcp://cn.vipor.net:5040 -u RQdUotwPueFvRY5xKfn6REsMUsBdhhmqdq.$worker -p x --threads 8
